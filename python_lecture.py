@@ -54,6 +54,89 @@ print("fruits_tuple[0]:", fruits_tuple[0])
 # fruits_tuple[0] = "orange"
 # I commented out the above line because it will give an error.
 
+# Dictionary in Python
+# A dictionary is unordered, changeable, and indexed. What is nice is that you get to name the keys.
+airport_codes = {"Los Angeles": "LAX",
+                 "Santa Ana": "SNA",
+                 "Dallas Fort Worth": "DFW",
+                 "Seattle": "SEA"
+                 }
+# The keys are on the left of the semicolons, the values on the right
+print("airport_codes dictionary:", airport_codes)
+
+# Note: Neither the keys nor the values of the dictionary need to be the same type. But beware, while lists and
+# dictionaries can serve as values, they cannot serve as keys because they are mutable (changeable). For this
+# reason, lists can be keys, as well as values, in the dictionary. Anything (even a user-defined object) can be a
+# value.
+
+# You can access the values using square brackets
+print("square bracket access:", airport_codes["Santa Ana"])
+
+# You can also access the values using the "get(x)"
+print("access using 'get()' function:", airport_codes.get("Santa Ana"))
+
+# You can also change values associated with existing keys using square brackets
+airport_codes["Los Angeles"] = "L.A.X."
+print("new airport_codes dictionary:", airport_codes)
+
+# Note: Duplicate keys are not allowed. You can see here that the value is replaced, another key/object pair is
+# not created when we reuse Los Angeles. Even if you try to have the same key twice when initializing the
+# dictionary, the second instance will overwrite the first.
+
+# Adding a new dictionary entry is as simple as defining key/value pair
+airport_codes["Phoenix"] = "PHX"
+print("updated airport_codes dictionary:", airport_codes)
+
+# Note: You will get an error if you refer to a key that is not in the dictionary without assigning it a value.
+# To avoid this, you can use the "in" keyword to check if a key is in a dictionary before trying to access it.
+# There is also "not in".
+print("Checking for Los Angeles:", "Los Angeles" in airport_codes)
+print("Checking for Orlando:", "Orlando" in airport_codes)
+
+# You can get the length of a dictionary
+print("airport_codes length:", len(airport_codes))
+
+# You can get a list of tuples of key/vale pairs of every entry in the dictionary
+print("airport_codes items:", airport_codes.items())
+
+# You can have either the keys or items returned in a list, as well.
+print("keys:", list(airport_codes.keys()))
+print("values:", list(airport_codes.values()))
+
+# You can merge two dictionaries
+
+ec_airport_codes = {"New York": "JFK",
+                    "Philadelphia": "PHL",
+                    "Boston": "BOS"
+                    }
+
+airport_codes.update(ec_airport_codes)
+print("updated airport_codes:")
+print(airport_codes)
+
+# If any of the keys were the same between the dictionaries, the value in the input dictionary would
+# overwrite the value in the other dictionary (i.e., ec_airport_codes value would replace airport_codes value)
+
+# Note: The input value for the update function can also be a list of tuples. For each tuple, the first value
+# would be taken as the key and the second value would be the value associated with that key.
+
+# You can use "pop('x')" to remove the entry associated with the key 'x'. It is important to check that 'x' is
+# in the dictionary before trying to remove it.
+if "San Diego" in airport_codes:
+    airport_codes.pop("San Diego")
+
+# You can assign the above line to the variable and the associated value will be assigned to that variable
+# if the key you are trying to pop exists.
+
+# The "dict.popitem()" function does the same but for a random key, and the return value is a tuple of the removed
+# key/value pair.
+
+# You can also delete entries using the 'del' keyword if you do not need the associated value
+del airport_codes["Los Angeles"]
+print("smaller airport_codes dictionary:", airport_codes)
+
+# You can clear a dictionary with "dict.clear()". You can also use the "del" key word "del dict".
+
 # You can check the type of your variable
 print("myint type:", type(myint))
 print("myfloat type:", type(myfloat))
@@ -208,7 +291,7 @@ for fruit in fruits:
 
 # Above, "fruit" refers to the item in the list.
 
-# Alternatively, you can still use the range function. Here "fruit" is an index.
+# Alternatively, you can still use the range function. Here "fruit" is a numerical index.
 print("loops with range 4")
 for fruit in range(len(fruits)):
     print(fruits[fruit])
@@ -225,6 +308,22 @@ print("loop through strings")
 word = "Statistics"
 for letter in word:
     print(letter)
+
+# You can also iterate through dictionaries
+print("loop through dictionary keys")
+for city in airport_codes:
+    print(city)
+
+print("loop through dictionary values")
+for code in airport_codes:
+    print(airport_codes[code])
+
+# You can also use the "items()" function to print key/value pairs
+print("loop through dictionary entries")
+for cities, codes in airport_codes.items():
+    print(cities, codes)
+
+# Similarly, you can do this with the ".keys()" and ".values()" functions to print keys or values.
 
 # Nested For Loops
 # Nested for loops are good for iterating through two-dimensional arrays
