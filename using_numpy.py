@@ -9,6 +9,9 @@
 # importing a package (adding "as np" allows us to shorten what we type in the future)
 import numpy as np
 
+# Why use numpy arrays?
+# - less memory used
+# - faster run-time
 
 # observations
 height = [1.87, 1.87, 1.82, 1.91, 1.90, 1.85]
