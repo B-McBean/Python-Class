@@ -1,7 +1,7 @@
 # Crash Course in Python
 # Author: Breanna McBean
 # Important functions in Python
-# May 28, 2019
+# May 29, 2019
 
 ##############################################
 # Variables in Python
@@ -332,6 +332,18 @@ for cities, codes in airport_codes.items():
     print(cities, codes)
 
 # Similarly, you can do this with the ".keys()" and ".values()" functions to print keys or values.
+
+# If you want to iterate through multiple things concurrently, you can use the "zip(x, y, ...)" function where
+# the inputs are lists, tuples, or dictionaries of the same length (If they are not the same length, the zip
+# function will stop at the end of the shortest input.
+list_1 = [1, 2, 3]
+list_2 = ["one", "two", "three"]
+list_3 = ["uno", "dos", "tres"]
+
+counters = zip(list_1, list_2, list_3)
+print("using the zip function:")
+for numerical, english, spanish in counters:
+    print(numerical, english, spanish)
 
 # Nested For Loops
 # Nested for loops are good for iterating through two-dimensional arrays.
