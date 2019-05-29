@@ -9,15 +9,15 @@
 myint = 1
 myfloat = 1.23
 mystring = "hello"
-# You can define a string using either single or double quote. It may be better to use double quotes if you 
-# want to use a single quote within the string. 
+# You can define a string using either single or double quote. It may be better to use double quotes if you
+# want to use a single quote within the string.
 
 # Lists
 # Lists in Python are like arrays.
 mylist = [0, 1, 2]
 print("mylist:", mylist)
 # You can access each element
-print("mylist[0]:", mylist[0])  
+print("mylist[0]:", mylist[0])
 # Note: Python is a zero-indexed language, i.e.,
 # 0 = mylist[0],
 # 1 = mylist[1], and
@@ -41,7 +41,7 @@ a = [1, 2, 3]
 print("a:", a)
 b = a
 # The "list.append(x)" function adds 'x' to the end of 'list'.
-b.append(4) 
+b.append(4)
 print("new a:", a)
 # Changing b also changes a. This is because Python variables are pointers. If you don't know what that means,
 # it's not super important, but still be aware.
@@ -156,8 +156,8 @@ print(int(102.8))
 print(5 / 2)  # This yields 2.5, rather than rounding to get an int.
 print(int(5 / 2))  # This yields 2 by chopping at the decimal rather than rounding
 
-print(str(12))  
-# Changing to a string is especially helpful if you want to print a statement including a numerical value, 
+print(str(12))
+# Changing to a string is especially helpful if you want to print a statement including a numerical value,
 # as below:
 
 # Example
@@ -169,8 +169,8 @@ print("Congratulations, " + user + "! You just wrote " + str(lines) + " lines of
 # Making lists
 print("tuple to list:", list((0, 1, 2)))
 # You can make a list out of a string. Python makes a list with each of the letters in the order
-# they appear in the string. 
-print("string to list:", list("Stats"))  
+# they appear in the string.
+print("string to list:", list("Stats"))
 # Making tuples
 print("list to tuple:", tuple([0, 1, 2]))
 print("string to tuple:", tuple("Stats"))
@@ -178,7 +178,7 @@ print("string to tuple:", tuple("Stats"))
 ##############################################
 # Conditional Statements in Python
 
-print("conditional statement 'if'")
+print("conditional statement 'if':")
 # "if" statements
 x = 2
 y = 8
@@ -186,18 +186,18 @@ if x < y:
     print(str(x) + " is less than " + str(y))
 
 # What if the statement doesn't meet the condition? We can add an "else" to catch those cases.
-print("conditional statement 'if/else'")
+print("conditional statement 'if/else':")
 x = 8
 y = 2
 if x < y:
     print(str(x) + " is less than " + str(y))
 else:
     print(str(x) + " is greater than " + str(y))
-    
+
 # Note: The "else" does not get it's own condition. It catches anything that doesn't meet the first condition.
 
 # What about the case when x=y? We can capture that with an "elif"(else-if) condition (an additional condition).
-print("conditional statement 'if/elif/else'")
+print("conditional statement 'if/elif/else':")
 x = 8
 y = 8
 if x < y:
@@ -206,7 +206,7 @@ elif x == y:  # Note: When comparing for equality, use double equals sign
     print(str(x) + " is equal to " + str(y))
 else:
     print(str(x) + " is greater than " + str(y))
-    
+
 # Note: The elif gets a specific condition, while the else statement still serves as a catch-all for cases
 # that don't meet the first two conditions.
 
@@ -221,7 +221,7 @@ else:
 # condition is never entered.
 
 # You can also have nested if statements.
-print("nested conditional statement")
+print("nested conditional statement:")
 x = 2
 y = 12
 z = 10
@@ -230,7 +230,7 @@ if x < y:
         print(str(x) + " is less than " + str(y) + " and " + str(z) + ".")
     else:
         print(str(x) + " is less than " + str(y) + ", but greater than " + str(z) + ".")
-elif x == y:  
+elif x == y:
     print(str(x) + " is equal to " + str(y))
 else:
     print(str(x) + " is greater than " + str(y))
@@ -238,7 +238,7 @@ else:
 # the "x == y" case and the "else" case.
 
 # Using "and", "or", and negation in conditional statements:
-print("'and' in a conditional statement")
+print("'and' in a conditional statement:")
 x = 2
 y = 12
 z = 10
@@ -248,7 +248,7 @@ if (x < y) & (x < z):
 # an "and". This will be true if both arguments are true. If one of the arguments is false, it will be false.
 
 # We can also use "or":
-print("using 'or' in a conditional statement")
+print("using 'or' in a conditional statement:")
 x = 11
 y = 12
 z = 10
@@ -256,7 +256,7 @@ if (x > y) | (x > z):
     print(str(x) + " is not the smallest value.")
 
 # We can also negate a condition:
-print("using negation in a conditional statement")
+print("using negation in a conditional statement:")
 x = 2
 y = 3
 
@@ -271,19 +271,19 @@ if x != y:
 # For loops iterate through a specific, pre-determined range given by the programmer.
 
 # The "range" function in python allows you to create a range to iterate over.
-print("loops with range 1")
+print("loops with range 1:")
 for x in range(5):
     print(x)
 # This will print the numbers 0-4. The iterating will always stop one before the input value.
 
 # You can also assign a starting point.
-print("loops with range 2")
+print("loops with range 2:")
 for x in range(10, 15):
     print(x)
 # This will print the values 10-15.
 
 # You are also able to give a step size for each iteration.
-print("loops with range 3")
+print("loops with range 3:")
 for x in range(0, 15, 3):
     print(x)
 # This will print 0,3,6,9,12.
@@ -292,7 +292,7 @@ for x in range(0, 15, 3):
 # efficient looping.
 
 # Python also has a convenient way to iterate through lists and tuples.
-print("loop through lists")
+print("loop through lists:")
 fruits = ["apples", "oranges", "bananas", "strawberries"]
 for fruit in fruits:
     print(fruit)
@@ -300,34 +300,34 @@ for fruit in fruits:
 # Above, "fruit" refers to the item in the list.
 
 # Alternatively, you can still use the range function. Here "fruit" is a numerical index.
-print("loops with range 4")
+print("loops with range 4:")
 for fruit in range(len(fruits)):
     print(fruits[fruit])
 
 # You can use for loops to create a list.
-print("creating a list with loops")
+print("creating a list with loops:")
 integers = []
 for i in range(10):
     integers.append(i)
 print(integers)
 
 # You can also iterate through strings.
-print("loop through strings")
+print("loop through strings:")
 word = "Statistics"
 for letter in word:
     print(letter)
 
 # You can also iterate through dictionaries.
-print("loop through dictionary keys")
+print("loop through dictionary keys:")
 for city in airport_codes:
     print(city)
 
-print("loop through dictionary values")
+print("loop through dictionary values:")
 for code in airport_codes:
     print(airport_codes[code])
 
 # You can also use the "items()" function to print key/value pairs.
-print("loop through dictionary entries")
+print("loop through dictionary entries:")
 for cities, codes in airport_codes.items():
     print(cities, codes)
 
@@ -335,14 +335,14 @@ for cities, codes in airport_codes.items():
 
 # Nested For Loops
 # Nested for loops are good for iterating through two-dimensional arrays.
-print("nested for loops 1")
+print("nested for loops 1:")
 test = [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
 for i in range(3):
     for j in range(3):
         print(test[i][j])
 # Above is the more "standard" way of indexing nested for loops. Below, you can find an example that uses the
 # Python list indexing.
-print("nested for loop 2")
+print("nested for loop 2:")
 for row in test:
     for item in row:
         print(item)
@@ -351,7 +351,7 @@ for row in test:
 # While loops continue running until a condition is met.
 # Note: It is important to make sure you have an "updater" so that the condition will eventually be met
 # and you do not end up in an infinite loop.
-print("while loop")
+print("while loop:")
 i = 1
 while i < 6:
     print(i)
@@ -361,7 +361,7 @@ while i < 6:
 # *= , and /= to subtract by a value, multiply by a value, and divide by a value, respectively.
 
 # You can also use a "break" statement to exit out of a loop for a given condition.
-print("break statement 1")
+print("break statement 1:")
 i = 1
 while i < 6:
     print(i)
@@ -373,7 +373,7 @@ while i < 6:
 # The break statement will only take you out of the loop you are in. In the example below, the break statement will
 # take you out of the for loop, but you will stay in the while loop.
 i = 0
-print("break statement 2")
+print("break statement 2:")
 while i < 5:
     print(i)
     for j in range(5):
@@ -384,13 +384,14 @@ while i < 5:
     print("new i")
 
 # There is also the "continue" statement to stop the current iteration but continue on to the next one.
-print("continue statement")
+print("continue statement:")
 i = 0
 while i < 6:
     i += 1
     if i == 3:
         continue
     print(i)
+
 
 # This will print 1, 2, 4, 5, 6. Three is skipped because of the continue statement.
 
@@ -404,7 +405,7 @@ def greetings():
     print("Hello")
 
 
-print("greetings function")
+print("greetings function:")
 greetings()
 
 
@@ -415,7 +416,7 @@ def greet_count(number):
         print("Hello")
 
 
-print("greet count function")
+print("greet count function:")
 greet_count(3)
 
 
@@ -425,7 +426,7 @@ def grocery_list(items):
         print(thing)
 
 
-print("grocery_list function")
+print("grocery_list function:")
 my_list = ["pasta", "eggs", "milk"]
 grocery_list(my_list)
 
@@ -435,11 +436,11 @@ def university(school="CSUF"):
     print("I go to " + school)
 
 
-print("university function with input 1")
+print("university function with input 1:")
 university("UCI")
-print("university function with input 2")
+print("university function with input 2:")
 university("CSULB")
-print("university function default value")
+print("university function default value:")
 university()
 
 
@@ -448,5 +449,5 @@ def square(val):
     return val * val
 
 
-print("function with a return value")
+print("function with a return value:")
 print(square(2))
