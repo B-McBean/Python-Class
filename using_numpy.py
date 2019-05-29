@@ -37,6 +37,8 @@ np_data = np.array([height, weight])
 print("np_data:")
 print(np_data)
 
+# Note: NumPy arrays must have the same data type for each entry.
+
 # You can print the dimensions of the data
 print("dimensions of np_data:", np_data.shape)
 
@@ -44,6 +46,15 @@ print("dimensions of np_data:", np_data.shape)
 print("number of elements in np_data:", np_data.size)
 
 # There are also many ways to create an array
+
+# You can read in data from a file using "np.genfromtxt("file.type", skip_header=1, delimiter="x")"
+# Since NumPy arrays must have the same data type for each element, if there is a title on the column,
+# use the argument "skip_header=1" to skip the first line. The file type will determine the delimiter.
+# There is also an argument "unpack" that you can set to "True" if you want to save each column to a separate
+# variable. You would set x,y,...=np.genfromtxt(...).
+
+# Note: If there are string values in numerical data, they will be changed to nan when converted into a
+# NumPy array.
 
 # You can create an array and specify the data type of the elements
 a = np.array([[1, 2, 4], [5, 8, 7]], dtype='int')
@@ -54,6 +65,11 @@ print("creating an np array with lists:", a.dtype)
 b = np.zeros((3, 4))
 print("initializing np array full of zeros:")
 print(b)
+
+# You can create the identity matrix
+eye = np.identity(3)
+print("identity matrix:")
+print(eye)
 
 # You can also choose a number to initialize all of the elements to (if you don't want 0)
 c = np.full((3, 3), 6, dtype='complex')
@@ -197,7 +213,7 @@ print("array 1 + array 2:")
 print(a + b)
 
 # You can perform element-wise multiplication
-print("element wise multiplicatio of arrays 1 and 2:")
+print("element wise multiplication of arrays 1 and 2:")
 print(a * b)
 
 # You can perform matrix multiplication
