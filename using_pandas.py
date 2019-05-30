@@ -28,9 +28,9 @@ survival_data = pd.read_csv("TitanicSurvival.csv")
 # Note: If the file you are trying to read is not in the same folder as the Python file you are
 # trying to read it from, you must provide the path through your file system.
 
-# The "head(n)" function will show the first n rows of the data frame
+# The "head(n)" function will show the first n rows of the data frame (default value is 5)
 print("survival_data head:")
-print(survival_data.head(5))
+print(survival_data.head())
 
 # The "info()" function tells you a bit about the data frame (name of columns, entries, size of data frame, etc.).
 print("survival_data info:")
@@ -50,9 +50,21 @@ print(survival_data.describe())
 # "data.median()", and "data.std()" are all fairly self-explanatory. "data.corr()" returns a pandas data frame of
 # correlation values for the numerical columns. "data.count()" returns the number of non-null entries.
 
+# You can find these values for each column of numerical data.
+print("survival_data mean")
+print(survival_data.mean())
+# The type returned here is a "series", which is a one-dimensional labeled array.
+
+# You can also find these values for a specific column of numerical data.
+print("Min age:", survival_data["age"].min())
+
 # You can look up specific observations.
 print("first entry of survival_data:")
 print(survival_data.loc[0])
+# There are two functions you can use, "loc" and "iloc". You can use "loc" with any type of label to access the
+# element, but "iloc" works only for indices, so it accepts only integers.
+# Here is a Stack Overflow thread that explains the differences in more detail if you're interested:
+# https://stackoverflow.com/questions/31593201/how-are-iloc-ix-and-loc-different
 
 # You can look up specific values by index.
 print("first attribute of the first entry of survival_data:")
@@ -65,19 +77,19 @@ print(survival_data.loc[0, "age"])
 # You can examine specific attributes for each observation.
 print("ages recorded in survival_data:")
 ages = survival_data.loc[:, "age"]
-print(ages.head(5))
+print(ages.head())
 
 # You can filter your data based on a certain attribute.
 # This is like the "filter" function in R.
 print("filer survival_data for passengers younger than 18:")
 children = survival_data[survival_data["age"] < 18]
-print(children.head(5))
+print(children.head())
 
 # You can sort the data frame by an attribute. This works like the "arrange" function in R.
 # You can add an argument "ascending=False" after the value to sort by to sort it in descending order.
 print("arrange survival_data in ascending order by age")
 by_age = survival_data.sort_values(by="age")
-print(by_age.head(5))
+print(by_age.head())
 
 # There is a "groupby" function which functions like the "group_by" function in R.
 classes = survival_data.groupby("passengerClass")
@@ -86,13 +98,12 @@ print("First observation for each class:")
 print(classes.first())
 # Look at a group
 print("3rd class passenger data:")
-print(classes.get_group("3rd").head(5))
+print(classes.get_group("3rd").head())
 
 # We can also group by multiple attributes.
 survived_by_class = survival_data.groupby(["passengerClass", "survived"])
 print("Passengers grouped by class and if they survived:")
 print(survived_by_class.first())
-
 
 # We can apply functions to a column of a data frame (like the "apply" function in R).
 def string_to_boolean(status):
@@ -103,12 +114,12 @@ def string_to_boolean(status):
 
 
 print("Boolean survival:")
-print(survival_data["survived"].apply(string_to_boolean).head(5))
+print(survival_data["survived"].apply(string_to_boolean).head())
 
 # You can add this as a new column to your data frame with the modifications.
 survival_data["bool_survived"] = survival_data["survived"].apply(string_to_boolean)
 print("new survival_data:")
-print(survival_data.head(5))
+print(survival_data.head())
 
 # In this example, we changed a string of "yes" or "no" to the numerical 1 or 0. You could have also
 # added values to numerical columns, etc.
@@ -118,14 +129,14 @@ print(survival_data.head(5))
 # (This functions like the "mutate" function in R).
 print("Using assign:")
 survival_data = survival_data.assign(nonsense=lambda x: survival_data["age"] + survival_data["bool_survived"])
-print(survival_data.head(5))
+print(survival_data.head())
 # Above is a "lambda function". This is a shortcut you can use in certain cases to define a function
 # without a formal definition (like an anonymous function in MATLAB). You could also define the function
 # before the using the "assign" function as we did above with the "apply" function.
 
 # You can also use the "drop()" function to remove columns. There are many ways you can use this command. Here,
 # we are giving it the name of the column to remove, setting axis=1 to tell the function it is a column, and using
-# inplace=True to automatically modify the data frame. Instead of the "inplace command", you can also set
+# inplace=True to automatically modify the data frame. Instead of the "inplace" argument, you can also set
 # survival_data = survival_data.drop(...).
 survival_data.drop("nonsense", axis=1, inplace=True)
 print("removing nonsense column:")
