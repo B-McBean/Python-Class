@@ -48,13 +48,24 @@ print("number of elements in np_data:", np_data.size)
 # There are also many ways to create an array
 
 # You can read in data from a file using "np.genfromtxt("file.type", skip_header=1, delimiter="x")"
+
+populations = np.genfromtxt("city.csv", skip_header=1, delimiter=",")
+
 # Since NumPy arrays must have the same data type for each element, if there is a title on the column,
-# use the argument "skip_header=1" to skip the first line. The file type will determine the delimiter.
+# use the argument "skip_header=1" to skip the first line.
 # There is also an argument "unpack" that you can set to "True" if you want to save each column to a separate
-# variable. You would set x,y,...=np.genfromtxt(...).
+# variable. You would set x,y,...=np.genfromtxt(..., unpack=True).
 
 # Note: If there are string values in numerical data, they will be changed to nan when converted into a
-# NumPy array.
+# NumPy array. Since there are non-numerical entries "city.csv", we need to address this.
+
+populations[np.isnan(populations)] = 0
+# The "isnan(np.array)" function will return a boolean array where ones indicate that the entry in that position in
+# np.array is not a number. In line 61, we use this to set the non-numerical values to 0. Depending on what your
+# application is, you could also set the value to be the average of the other data points in that column, or
+# whatever makes the most sense.
+
+print(populations)
 
 # You can create an array and specify the data type of the elements
 a = np.array([[1, 2, 4], [5, 8, 7]], dtype='int')
@@ -127,7 +138,7 @@ print("creates np array of the 8th-17th element of g:", h)
 i = g[-8:17:1]
 print("creates np array of 8th element from the end of g to the 17th element of g:", i)
 
-# Like in MATLAB, the : operator means all elements till the end.
+# Like in MATLAB, the : operator when indexing means all elements.
 j = g[10:]
 print("creates np array of 10th-last elements of g:", j)
 
@@ -139,7 +150,7 @@ arr = np.array([[-1, 2, 0, 4],
 print("original array:")
 print(arr)
 cond = arr > 0
-# cond is a boolean array
+# Here, "cond" is a boolean array.
 print("boolean array of which elements in the original array meet the condition:")
 print(cond)
 temp = arr[cond]
@@ -162,9 +173,9 @@ print("original array times 10:", k*10)
 # You can square each element
 print("square each element of the original array:", k**2)
 
-# You can modify existing numpy arrays
-k *= 2
-print("assigned doubled array to original array:", k)
+# It is nice that we can do these operations for NumPy arrays, because we cannot do this for lists.
+
+# Note: The +=, -=, *=, /= operators work for NumPy arrays.
 
 # You can take the transpose of numpy array
 m = np.array([[1, 2, 3], [3, 4, 5], [9, 6, 0]])
@@ -242,16 +253,13 @@ e = np.array([[1, 4, 2],
 print("original array:")
 print(e)
 
-# Sort the array (returns a flat array of sorted values
+# Sort the array (returns a flat array of sorted values if axis=None)
 print("flattened sorted array:", np.sort(e, axis=None))
-
-# Sort the array row-wise
-print("each row of the array sorted:")
-print(np.sort(e, axis=1))
-# Choosing axis=0 gives column-wise sorted array
+# If you set "axis=0" or "axis=1", you will get an array sorted along either the columns or rows, respectively.
 
 # Note: Adding an extra argument, "kind= 'sort_algo'", you can choose the sorting algorithm.
 # If you're familiar with sorting algorithms and have a large array this may be beneficial to you.
+# Default sorting algorithm is quicksort. The other two options are merge sort and heap sort.
 
 # You can also sort an array by certain values
 
@@ -277,3 +285,5 @@ print(np.sort(arr, order='name'))
 print("array sorted by grad year then GPA:")
 print(np.sort(arr, order=['grad_year', 'cgpa']))
 
+# You can access elements of a numpy array using square brackets
+print(arr[0])
