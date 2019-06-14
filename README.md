@@ -5,6 +5,10 @@ How to Use PyCharm.pdf: Presentation with screencaptures detailing some basics o
 
 TitanicSurvival.csv: Familiar data set from R to practice using data with the Pandas package. 
 
+city.csv: Familiar dataset from R (slightly modified) for practice in using_pandas.py.
+
+
+
 python_lecture.py: Python file with some basic python functions explaining data types, conditional statements, loops, and user-defined functions. 
 
 python_lecture.py examples.pdf: Examples associated with material presented in python_lecture.py. 
